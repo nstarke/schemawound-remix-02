@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Schemawound Remix</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="lib/Audiolet.min.js"></script>
+		<script src="schemawound-remix-02.js"></script>
+	</head>
+	<body>
+		<h1>Schemawound - The Same Color As Your Skin (Extended) - Nicholas Starke Remix</h1>
+		<h2>This will only work with the Web Audio API enabled</h2>
+		<h3>Go to "about:flags" in chrome to enable the Web Audio API</h3>
+<p> Original Track by Schemawound can be found <a href="http://music.schemawound.com/album/they-want-to-make-your-body-move-i-want-to-hold-you-perfectly-still">here</a>.</p>
+		
+		Seconds:
+		<input type="text" id="seconds" value="320" />
+		<input type="button" id="play" value="Play" />
+		<input type="button" id="stop" value="Stop" />
+		<p><a href="/">Home</a></p>
+		<script>
+			var remix;
+			$(function() {
+				$('#stop').hide();
+				$('#play').on('click', function() {
+					$('#stop').show();
+					$('#play').hide();
+					var seconds = parseInt($('#seconds').val());
+					remix = new SchemawoundRemix02(seconds);
+					remix.play();
+				});
+				$('#stop').on('click', function() {
+					$('#play').show();
+					$('#stop').hide();
+					remix.stop();
+				});
+			});
+		</script>
+	</body>
+</html>
